@@ -8,11 +8,32 @@
 
 {% block content %}
 
+<div class="lead-cont">
 {% for lead in leads %}
 <div class="lead">
-  <a href="{% url 'leads:detail' lead.id %}">{{lead}}</a> {{lead.age}}
+  <div>
+    <h4>First Name</h4>
+    <p>{{lead.first_name}}</p>
+  </div>
+  <div>
+    <h4>Last Name</h4>
+    <p>{{lead.last_name}}</p>
+  </div>
+  <div>
+    <h4>Age</h4>
+    <p>{{lead.age}}</p>
+  </div>
+  <!-- <div>
+    <h4>Agent email</h4>
+    <p>{{lead.agent}}</p>
+  </div> -->
+  <p class="btns">
+    <span><a href="">update</a></span>
+    <span><a href="{% url 'leads:delete' lead.id %}">delete</a></span>
+  </p>
 </div>
 {% endfor %}
+</div>
 
 
 <a href="{% url 'leads:create' %}">Create new lead</a>

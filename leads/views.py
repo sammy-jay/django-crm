@@ -30,3 +30,9 @@ def lead_create(request):
 
     context = {'form': form}
     return render(request, 'leads/lead_create.html', context) 
+
+def lead_delete(request, pk):
+    lead = get_object_or_404(Lead, id=pk)
+    if lead:
+        lead.delete()
+    return redirect('/leads/')
