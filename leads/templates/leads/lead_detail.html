@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block header %}
+Lead detail | {{lead}}
+{% endblock header %} 
+
+{% block title %}
+<h1>This is detail of {{lead.id}}</h1>
+{% endblock title %} 
+
+{% block content %} 
+<p>Lead name - {{lead}}</p>
+<p>Lead age - {{lead.age}}</p>
+<p>Lead agent - {{lead.agent}}</p>
+{% endblock content %}
