@@ -14,7 +14,11 @@ class Lead(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     age = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
     agent = models.ForeignKey("Agent", on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        ordering = ['-created_at']
 
     def __str__(self) -> str:
         return self.first_name + " " + self.last_name
