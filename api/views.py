@@ -21,8 +21,8 @@ def lead_list(request):
         serializer = LeadSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
-    return Response(serializer.data)
+            return Response(serializer.data, status=201)
+    return Response(serializer.data, status=200)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -31,18 +31,17 @@ def lead_detail(request,pk):
 
     if request.method == 'GET':
         serializer = LeadSerializer(lead)
-        return Response(serializer.data)
+        return Response(serializer.data, status=200)
     
     elif request.method == 'PUT':
         serializer = LeadSerializer(lead, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
     
     elif request.method == 'DELETE':
         lead.delete()
-        return HttpResponse(status=204)
+        return Response(status=204)
 
-    return Response("Hello")
 
