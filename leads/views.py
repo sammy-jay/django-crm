@@ -27,7 +27,7 @@ def lead_create(request):
 
     if request.method == 'POST':
         print(request.POST)
-        form = LeadForm(request.POST)
+        form = LeadForm(request.POST,request.FILES)
 
         if form.is_valid():
             print(form.cleaned_data)
@@ -48,7 +48,7 @@ def lead_update(request, pk):
     context['form'] = form
 
     if request.method == 'POST':
-        form = LeadForm(request.POST, instance=lead)
+        form = LeadForm(request.POST, instance=lead, files=request.FILES)
         if form.is_valid():
             lead.save()
             return redirect('/leads/')

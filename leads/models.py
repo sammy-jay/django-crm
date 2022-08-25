@@ -15,6 +15,7 @@ class Lead(models.Model):
     last_name = models.CharField(max_length=20)
     age = models.IntegerField(default=0)
     description = models.TextField(max_length=200,null=True, blank=True)
+    image = models.ImageField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     agent = models.ForeignKey("Agent", on_delete=models.CASCADE, null=True)

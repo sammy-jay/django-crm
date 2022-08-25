@@ -16,6 +16,7 @@ class LeadForm(forms.ModelForm):
             'first_name': forms.TextInput(attrs={'class': styles}),
             'last_name': forms.TextInput(attrs={'class': styles}),
             'age': forms.NumberInput(attrs={'class': styles}),
+            # 'image': forms.NumberInput(attrs={'class': styles}),
             'description': forms.Textarea(attrs={'class': f"{styles} h-20"}),
             'agent': forms.Select(attrs={'class': f"{styles} py-2.5"}),
         }
