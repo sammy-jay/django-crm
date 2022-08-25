@@ -1,13 +1,23 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>{% block header %}{% endblock header %}</title>
   </head>
   <body>
-   <h1>Home Page of the app</h1>
-   <hr>
-   <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod repellat iure officia molestias harum a omnis inventore quia accusamus quis sapiente doloribus consequuntur, ea facere vel sit! Deserunt dolor odio dolorem eveniet saepe amet laborum rerum, quasi cupiditate pariatur quos hic cum obcaecati dolores rem ad maxime ipsam illum excepturi!</p>
+    {% include 'navbar.html' %}
+    {% include 'hero.html' %}
+    {% include 'content.html' %}
+    {% include 'feature.html' %}
+    {% include 'pricing.html' %}
+    {% include 'testimonial.html' %}
+    {% include 'cta.html' %}
+    {% include 'contact.html' %}
+    {% include 'footer.html' %}
+
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>
