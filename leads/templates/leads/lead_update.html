@@ -25,7 +25,7 @@
           >
         </div>
 
-<form method="POST" class="form">
+<form method="POST" class="form" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="w-full mx-auto">
         <div class="flex flex-col flex-wrap -m-2">
@@ -68,6 +68,15 @@
           <div class="p-2 w-full">
             <div class="relative">
               <label class="leading-7 text-sm text-gray-600"
+                >{{form.image.label}}</label
+              >
+
+              {{form.image }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
                 >{{form.description.label}}</label
               >
 
@@ -88,9 +97,9 @@
         
       </div>
       <img
-        alt="ecommerce"
-        class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-        src="https://dummyimage.com/400x400"
+        alt="{{lead}}"
+        class="lg:w-1/2 w-full  h-full object-cover object-center rounded"
+        src="{{lead.image.url}}"
       />
     </div>
   </div>
