@@ -26,8 +26,11 @@ def lead_create(request):
     form = LeadForm()
 
     if request.method == 'POST':
+        print(request.POST)
         form = LeadForm(request.POST)
+
         if form.is_valid():
+            print(form.cleaned_data)
             form.save()
             return redirect('/leads/')
 
