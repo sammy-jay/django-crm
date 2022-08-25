@@ -1,14 +1,59 @@
-{% extends 'main.html' %}
-{% block header %}
-Lead detail | {{lead}}
+{% extends 'main.html' %} 
+{% block header %} Lead detail | {{lead}} 
 {% endblock header %} 
+{% block content %}
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap justify-between">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+          Lead {{lead.id}}
+        </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
+          {{lead}}
+        </h1>
+        <div class="flex mb-4">
+          <a
+          href="{% url 'leads:detail' lead.id %}"
+            class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+            >Details</a
+          >
 
-{% block title %}
-<h1>This is detail of {{lead.id}}</h1>
-{% endblock title %} 
-
-{% block content %} 
-<p>Lead name - {{lead}}</p>
-<p>Lead age - {{lead.age}}</p>
-<p>Lead agent - {{lead.agent}}</p>
+          <a href="{% url 'leads:update' lead.id %}" class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
+            >Update</a
+          >
+        </div>
+        <p class="leading-relaxed mb-4">{{lead.description}}</p>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">First name</span>
+          <span class="ml-auto text-gray-900">{{lead.first_name}}</span>
+        </div>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Last name</span>
+          <span class="ml-auto text-gray-900">{{lead.last_name}}</span>
+        </div>
+        <div class="flex border-t border-gray-200 py-2">
+          <span class="text-gray-500">Age</span>
+          <span class="ml-auto text-gray-900">{{lead.age}}</span>
+        </div>
+        <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+          <span class="text-gray-500">Agent</span>
+          <span class="ml-auto text-gray-900">{{lead.agent}}</span>
+        </div>
+        <div class="flex justify-end">
+          <button
+            class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+          >
+            <a href="{% url 'leads:delete' lead.id %}">Delete</a>
+          </button>
+        </div>
+      </div>
+      <img
+        alt="ecommerce"
+        class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+        src="https://dummyimage.com/400x400"
+      />
+    </div>
+  </div>
+</section>
 {% endblock content %}

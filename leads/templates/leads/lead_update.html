@@ -1,31 +1,98 @@
+
 {% extends 'main.html' %} 
-
-{% block header %} Update Lead {% endblock header %}
-
-
-{% block title %}
-<h1>Update Lead {{lead.id}}</h1>
-{% endblock title %} 
-
+{% block header %} Lead detail | {{lead}} 
+{% endblock header %} 
 {% block content %}
+<section class="text-gray-600 body-font overflow-hidden">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="lg:w-4/5 mx-auto flex flex-wrap justify-between">
+      <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+        <h2 class="text-sm title-font text-gray-500 tracking-widest">
+          Lead {{lead.id}}
+        </h2>
+        <h1 class="text-gray-900 text-3xl title-font font-medium mb-4">
+          Update {{lead}}
+        </h1>
+        <div class="flex mb-4">
+          <a
+          href="{% url 'leads:detail' lead.id %}"
+            class="flex-grow border-b-2 border-gray-300 py-2 text-lg px-1"
+            >Details</a
+          >
+
+          <a href="{% url 'leads:update' lead.id %}" class="flex-grow text-indigo-500 border-b-2 border-indigo-500 py-2 text-lg px-1"
+            >Update</a
+          >
+        </div>
+
 <form method="POST" class="form">
-    {% csrf_token %}
-    <div>
-        <label>{{form.first_name.label}}</label>
-        {{form.first_name }}
+      {% csrf_token %}
+      <div class="w-full mx-auto">
+        <div class="flex flex-col flex-wrap -m-2">
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.first_name.label}}</label
+              >
+
+              {{form.first_name }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.last_name.label}}</label
+              >
+
+              {{form.last_name }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.age.label}}</label
+              >
+
+              {{form.age }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.agent.label}}</label
+              >
+
+              {{form.agent }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.description.label}}</label
+              >
+
+              {{form.description }}
+            </div>
+          </div>
+        </div>
+
+        <div class="py-2 w-full flex justify-end">
+          <input
+            type="submit"
+            class="flex  mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            value="Update Lead"
+          />
+        </div>
+      </div>
+    </form>
+        
+      </div>
+      <img
+        alt="ecommerce"
+        class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+        src="https://dummyimage.com/400x400"
+      />
     </div>
-    <div>
-        <label>{{form.last_name.label}}</label>
-        {{form.last_name }}
-    </div>
-    <div>
-        <label>{{form.age.label}}</label>
-        {{form.age }}
-    </div>
-    <div>
-        <label>{{form.agent.label}}</label>
-        {{form.agent }}
-    </div>
-    <input type="submit" value="Submit"/>
-</form>
+  </div>
+</section>
 {% endblock content %}

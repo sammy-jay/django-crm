@@ -1,31 +1,78 @@
-{% extends 'main.html' %} 
-
-{% block header %} Create Lead {% endblock header %}
-
-
+{% extends 'main.html' %} {% block header %} Create Lead {% endblock header %}
 {% block title %}
 <h1>Create a new Lead</h1>
-{% endblock title %} 
+{% endblock title %} {% block content %}
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1
+        class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+      >
+        Create a new lead
+      </h1>
+    </div>
 
-{% block content %}
     <form method="POST" class="form">
-        {% csrf_token %}
-        <div>
-            <label>{{form.first_name.label}}</label>
-            {{form.first_name }}
+      {% csrf_token %}
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div class="flex flex-col flex-wrap -m-2">
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.first_name.label}}</label
+              >
+
+              {{form.first_name }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.last_name.label}}</label
+              >
+
+              {{form.last_name }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.age.label}}</label
+              >
+
+              {{form.age }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.agent.label}}</label
+              >
+
+              {{form.agent }}
+            </div>
+          </div>
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.description.label}}</label
+              >
+
+              {{form.description }}
+            </div>
+          </div>
         </div>
-        <div>
-            <label>{{form.last_name.label}}</label>
-            {{form.last_name }}
+
+        <div class="p-2 w-full">
+          <input
+            type="submit"
+            class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            value="Create Lead"
+          />
         </div>
-        <div>
-            <label>{{form.age.label}}</label>
-            {{form.age }}
-        </div>
-        <div>
-            <label>{{form.agent.label}}</label>
-            {{form.agent }}
-        </div>
-        <input type="submit" value="Submit"/>
+      </div>
     </form>
+  </div>
+</section>
+
 {% endblock content %}
