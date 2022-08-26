@@ -20,13 +20,18 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.shortcuts import render
-def index(request):
-    return render(request, 'index.html', {})
+from django.views.generic import TemplateView
+
+class LandingPageView(TemplateView):
+    template_name = 'index.html'
+    
+# def index(request):
+#     return render(request, 'index.html', {})
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
+    path('', LandingPageView.as_view()),
     path('leads/', include('leads.urls', namespace="leads")),
     path('api/', include('api.urls', namespace="api")),
     
