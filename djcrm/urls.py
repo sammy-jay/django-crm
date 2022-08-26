@@ -31,7 +31,7 @@ class LandingPageView(TemplateView):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LandingPageView.as_view()),
+    path('', LandingPageView.as_view(),name="index"),
     path('leads/', include('leads.urls', namespace="leads")),
     path('api/', include('api.urls', namespace="api")),
     
