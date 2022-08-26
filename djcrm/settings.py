@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-!xt7*+5ve!tn4#0&_bd#8lqb3m=)+3(%y3ef^-3gf91mz$-=_5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -136,3 +136,9 @@ MEDIA_ROOT = "media"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'leads.User'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+LOGIN_URL = '/leads/login/'
+LOGIN_REDIRECT_URL = '/leads/'
+LOGOUT_REDIRECT_URL = '/leads/login/'
