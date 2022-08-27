@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'corsheaders',
     'api',
     'leads'
 ]
@@ -51,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'djcrm.urls'
@@ -142,3 +145,11 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 LOGIN_URL = '/leads/login/'
 LOGIN_REDIRECT_URL = '/leads/'
 LOGOUT_REDIRECT_URL = '/leads/login/'
+
+CORS_ALLOWED_ORIGINS = [
+    "https://9000-sammyjay-ideasapplatest-ua9wvdo4v0r.ws-eu63.gitpod.io",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://9000-sammyjay-ideasapplatest-ua9wvdo4v0r.ws-eu63.gitpod.io",
+]
