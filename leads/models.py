@@ -4,7 +4,13 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    CHIOCES = (
+        ('A', 'Agent'),
+        ('O', 'Organiser')
+    )
+    user_type = models.CharField('User type',max_length=1, choices=CHIOCES)
+    # is_organiser = models.BooleanField(default=True)
+    # is_agent = models.BooleanField(default=False)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
