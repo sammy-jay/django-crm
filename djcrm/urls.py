@@ -33,6 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', LandingPageView.as_view(),name="index"),
     path('leads/', include('leads.urls', namespace="leads")),
+    path('agents/', include('agents.urls', namespace="agents")),
     path('api/', include('api.urls', namespace="api")),
     
 ]
