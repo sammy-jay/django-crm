@@ -17,7 +17,7 @@ class UserAdmin(admin.ModelAdmin):
                     )
     list_filter = ('is_active', 'is_staff')
     fields = ['username', 'first_name', 'last_name',
-              'email', 'password', ('is_active', 'is_staff')]
+              'email', 'password', 'user_type', 'is_active', 'is_staff']
     #   , 'groups', 'user_permissions'
 
 
