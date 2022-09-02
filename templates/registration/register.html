@@ -32,7 +32,23 @@
             </div>
           </div>
           
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.user_type.label}}</label
+              >
+              {{form.user_type }}
+               {% if form.user_type.errors %}
+                {% for error in form.user_type.errors %}
+                <p style="font-size: 13px;" class="text-red-500 my-2">
+                    {{ error|escape }}
+                </p>
+                {% endfor %}
+                {% endif %}
+            </div>
+          </div>
          
+          
           <div class="p-2 w-full">
             <div class="relative">
               <label class="leading-7 text-sm text-gray-600"
@@ -66,6 +82,7 @@
           </div>
          
           
+         
         </div>
        
         <div class="p-2 w-full">
