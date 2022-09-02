@@ -1,0 +1,40 @@
+{% extends 'main.html' %} {% block header %} Create Agent {% endblock header %}
+{% block title %}
+<h1>Create a new Agent</h1>
+{% endblock title %} {% block content %}
+<section class="text-gray-600 body-font relative">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1
+        class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900"
+      >
+        Create a new agent
+      </h1>
+    </div>
+
+    <form method="POST" class="form" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="lg:w-1/2 md:w-2/3 mx-auto">
+        <div class="flex flex-col flex-wrap -m-2">         
+          <div class="p-2 w-full">
+            <div class="relative">
+              <label class="leading-7 text-sm text-gray-600"
+                >{{form.user.label}}</label
+              >
+              {{form.user}}
+            </div>
+          </div>
+        </div>
+        <div class="p-2 w-full">
+          <input
+            type="submit"
+            class="flex mx-auto mt-4 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            value="Create Agent"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+{% endblock content %}
