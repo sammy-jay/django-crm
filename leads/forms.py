@@ -27,10 +27,11 @@ class CustomUserForm(UserCreationForm):
     
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('username','user_type')
         field_classes = {"username": UsernameField}
         widgets = {
             'username': forms.TextInput(attrs={'class': styles}),
+            'user_type': forms.Select(attrs={'class': f"{styles} py-2.5"}),
         }
     
   
